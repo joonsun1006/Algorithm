@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 const [n, pattern, ...arr] = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 const [head, tail] = pattern.split('*');
 
