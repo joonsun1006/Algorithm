@@ -8,14 +8,14 @@ let input = fs
 const [n, k] = input.shift().split(" ").map(Number)
 const temp = input.shift().split(" ").map(Number)
 
-let result = -Infinity
+let result = -987654321
+const psum = new Array(n+2).fill(0);
+for(let i=1; i<=n; i++){
+  psum[i] = psum[i-1] + temp[i-1]
+}
 
-for(let i=0; i<n-k+1; i++){
-  let sum=0;
-  for(let j=i; j<i+k; j++){
-    sum += temp[j];
-  }
-  result = Math.max(result, sum);
+for(let i=k; i<=n; i++){
+  result = Math.max(result, psum[i]-psum[i-k])
 }
 
 console.log(result)
